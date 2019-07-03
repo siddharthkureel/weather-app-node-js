@@ -3,7 +3,7 @@ const search = document.getElementById('search');
 
 weatherForm.addEventListener('submit',async(e)=>{
     e.preventDefault();
-    await fetch(`http://localhost:3000/weather/?address=${search.value}`)
+    await fetch(`/weather/?address=${search.value}`)
         .then(response => response.json())
         .then(data => {
             if(data.error){

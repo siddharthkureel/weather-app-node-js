@@ -1,15 +1,19 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 const hbs = require('hbs');
 
 const publicDirPath = path.join(__dirname, '../public');
 const geocode = require('./misc').geocode;
 const forecast = require('./misc').forecast;
 const partials = path.join(__dirname, '../views/partials');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(express.static(publicDirPath));
 hbs.registerPartials(partials);
 app.set('view engine','hbs');
+
 app.get('',(req, res)=>{
     res.render('index',{
         name:'Siddharth',
@@ -56,4 +60,4 @@ app.get('/weather',(req,res)=>{
 app.get('*',(req, res)=>{
     res.render('404')
 })
-app.listen(3000)
+app.listen(port)

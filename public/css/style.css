@@ -64,6 +64,13 @@ form.example button {
   border-left: none;
   cursor: pointer;
 }
+@media screen and (max-width: 600px) {
+  form.example input[type=text] {
+    width: 70%;
+  }
+  form.example button {
+    width: 30%;
+}
 
 form.example button:hover {
   background: #0b7dda;

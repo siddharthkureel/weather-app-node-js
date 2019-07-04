@@ -25,8 +25,9 @@ const forecast = (latitude, longitute, callback) => {
             callback('user input is not valid', response.body.error)
         } else {
             const { precipProbability, temperature, humidity } = response.body.currently;
+            console.log(precipProbability)
             const {summary} = response.body.daily;
-            callback(undefined, `It's currently ${temperature} C, chances of raining are ${precipProbability}%, Humidity is ${Number(humidity)*100}%,
+            callback(undefined, `It's currently ${temperature} C, chances of raining are ${Number(precipProbability)*100}%, Humidity is ${Number(humidity)*100}%,
             <br/> ${summary}
             `)
         }
